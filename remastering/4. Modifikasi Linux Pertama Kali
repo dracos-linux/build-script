@@ -1,0 +1,22 @@
+#!/bin/bash
+########################################################################
+# DRACOS REMASTERING SCRIPT
+# CREATED   : Eko Saputra (ekovegeance)
+# MAIL      : me@ekovegeance.com
+# LICENSE   : GNU GPL 3.0
+# WEBSITE   : https://www.ekovegeance.com/
+# VERSION   : v3.1.1 (06 Sep 2021)
+########################################################################
+
+Instalisasi paket dalam mode chroot
+=======================================================================
+# Mengisntall Aplikasi
+  sudo apt-get install nama-aplikasi
+ 
+# Menginstall Aplikasi Manual Dari Paket.deb
+  letakan aplikasi.deb di folder /tmp
+  sudo dpkg -i namapaket.deb
+
+# Menginstall paket.deb sekaligus
+  sudo dpkg -i *.deb
+ 

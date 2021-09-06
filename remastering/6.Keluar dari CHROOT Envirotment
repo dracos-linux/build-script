@@ -1,0 +1,26 @@
+#!/bin/bash
+########################################################################
+# DRACOS REMASTERING SCRIPT
+# CREATED   : Eko Saputra (ekovegeance)
+# MAIL      : me@ekovegeance.com
+# LICENSE   : GNU GPL 3.0
+# WEBSITE   : https://www.ekovegeance.com/
+# VERSION   : v3.1.1 (06 Sep 2021)
+########################################################################
+
+# Membersihkan Cache Apt
+  apt-get clean
+
+# Membersihan dependecis yang tak terpakai
+  apt-get autoremove
+
+# Membersihan Bash History
+  rm -rf /tmp/* ~/.bash_history
+
+# Unmount proc sys devpts exit 
+  umount /proc
+  umount /sys
+  umount /dev/pts
+  exit
+  sudo umount edit/dev
+  sudo umount mnt

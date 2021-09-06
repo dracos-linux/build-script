@@ -1,0 +1,16 @@
+#!/bin/bash
+########################################################################
+# DRACOS REMASTERING SCRIPT
+# CREATED   : Eko Saputra (ekovegeance)
+# MAIL      : me@ekovegeance.com
+# LICENSE   : GNU GPL 3.0
+# WEBSITE   : https://www.ekovegeance.com/
+# VERSION   : v3.1.1 (06 Sep 2021)
+########################################################################
+
+# Mengganti grup background
+  rename file menjadi splash.png dan copikan sebagai root user ke folder
+  /home/user/livecdtmp/extract-cd/isolinux
+# Edit Isolinux configuration
+  Silahkan buka folder sebagai root user di folder /home/ev/livecdtmp/extract-cd/isolinux
+edit file isolinux.cfg 

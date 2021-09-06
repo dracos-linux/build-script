@@ -1,0 +1,26 @@
+#!/bin/bash
+########################################################################
+# DRACOS REMASTERING SCRIPT
+# CREATED   : Eko Saputra (ekovegeance)
+# MAIL      : me@ekovegeance.com
+# LICENSE   : GNU GPL 3.0
+# WEBSITE   : https://www.ekovegeance.com/
+# VERSION   : v3.1.1 (06 Sep 2021)
+########################################################################
+
+# Mengganti Nama Distro
+  cd /etc
+  nano issue
+  nano issue.net
+
+# Mengganti Info Distro
+  cd /etc/xentaos /
+  nano info
+
+# Membuat Artwork
+# Artwork ada di -> https://github.com/dracos-linux/dracos-remaster   
+
+
+
+
+
