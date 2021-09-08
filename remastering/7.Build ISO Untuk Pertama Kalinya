@@ -10,7 +10,7 @@
 
 # Mengganti grup background
   rename file menjadi splash.png dan copikan sebagai root user ke folder
-  /home/user/livecdtmp/extract-cd/isolinux
+  /home/user/distro/binary/isolinux
 # Edit Isolinux configuration
-  Silahkan buka folder sebagai root user di folder /home/ev/livecdtmp/extract-cd/isolinux
+  Silahkan buka folder sebagai root user di folder /home/user/distro/binary/isolinux
 edit file isolinux.cfg 

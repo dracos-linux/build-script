@@ -22,5 +22,5 @@
   umount /sys
   umount /dev/pts
   exit
-  sudo umount edit/dev
+  sudo umount chroot/dev
   sudo umount mnt

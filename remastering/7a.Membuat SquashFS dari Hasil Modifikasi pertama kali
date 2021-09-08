@@ -9,30 +9,30 @@
 ########################################################################
 
 # Membuat SquashFS dari Hasil Modifikasi pertama kali
-  cd $HOME/livecdtmp/
-  sudo chmod +w extract-cd/casper/filesystem.manifest
+  cd $HOME/distro/
+  sudo chmod +w binary/live/filesystem.manifest
   sudo su
-  sudo chroot edit dpkg-query -W --showformat='${Package} ${Version}\n' > extract-cd/casper/filesystem.manifest
+  sudo chroot edit dpkg-query -W --showformat='${Package} ${Version}\n' > binary/live/filesystem.manifest
   exit
-  sudo cp extract-cd/casper/filesystem.manifest extract-cd/casper/filesystem.manifest-desktop
-  sudo sed -i '/ubiquity/d' extract-cd/casper/filesystem.manifest-desktop
-  sudo sed -i '/casper/d' extract-cd/casper/filesystem.manifest-desktop
-  sudo mksquashfs edit extract-cd/casper/filesystem.squashfs
+  sudo cp binary/live/filesystem.manifest binary/live/filesystem.manifest-desktop
+  sudo sed -i '/ubiquity/d' binary/live/filesystem.manifest-desktop
+  sudo sed -i '/live/d' binary/live/filesystem.manifest-desktop
+  sudo mksquashfs chroot binary/live/filesystem.squashfs
 
 # Mengupdate systemfile.size
-  cd $HOME/livecdtmp/
+  cd $HOME/distro/
   sudo su
-  printf $(du -sx --block-size=1 edit | cut -f1) > extract-cd/casper/filesystem.size
+  printf $(du -sx --block-size=1 chroot | cut -f1) > binary/live/filesystem.size
   exit
  
 # Membuat dan mengupdate md5sum CD
-  cd $HOME/livecdtmp/extract-cd
+  cd $HOME/distro/binary
   sudo rm MD5SUMS
   find -type f -print0 | sudo xargs -0 md5sum | grep -v isolinux/boot.cat | sudo tee MD5SUMS
   
 # Membuat ISO File
-  cd $HOME/livecdtmp/
-  sudo mkisofs -r -V "DracOS-3.1.1-amd64" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o../DracOS-3.1.1-amd64.iso extract-cd
+  cd $HOME/distro/
+  sudo mkisofs -r -V "DracOS-3.1.1-amd64" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o../DracOS-3.1.1-amd64.iso binary
   
 # Mengubah hak akses iso file yang tadi di buat
   cd $HOME/

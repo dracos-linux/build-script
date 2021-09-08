@@ -14,7 +14,7 @@
   nano issue.net
 
 # Mengganti Info Distro
-  cd /etc/xentaos /
+  cd /etc/dracos/
   nano info
 
 # Membuat Artwork

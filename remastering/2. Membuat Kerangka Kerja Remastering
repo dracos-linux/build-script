@@ -11,27 +11,27 @@
 # Mendownload Sistem Operasi DracOS GNU/linux Remaster
 
 # Membuat Folder Kerja 
-  mkdir ~/livecdtmp
+  mkdir ~/distro
 
 # Pindah Ke Directory Kerja
-  cd ~/livecdtmp
+  cd ~/distro
 
 # Membuat Directory extract-cd dan mnt
-  mkdir extract-cd mnt
+  mkdir binary mnt
 
 # Mount Iso Linux yang mau di remastering
   sudo mount -o loop ~/INSERT-NAME-HERE.iso mnt
 
 # Rsync filesystem.squashfsh
-  sudo rsync --exclude=/casper/filesystem.squashfs -a mnt/ extract-cd
+  sudo rsync --exclude=/live/filesystem.squashfs -a mnt/ binary
 
 # Mengextract filesystem.squashfs
-  sudo unsquashfs mnt/casper/filesystem.squashfs
+  sudo unsquashfs mnt/binary/filesystem.squashfs
 
 # Ganti nama directory squashfs-root ke edit
-  sudo mv squashfs-root edit
+  sudo mv squashfs-root chroot
 
-# Mengopy configuration resolv.conf ke edit/etc
-  sudo cp /etc/resolv.conf edit/etc/
+# Mengopy configuration resolv.conf ke chroot/etc
+  sudo cp /etc/resolv.conf chroot/etc/
 
 
