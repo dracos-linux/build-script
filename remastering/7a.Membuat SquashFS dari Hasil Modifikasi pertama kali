@@ -12,7 +12,7 @@
   cd $HOME/distro/
   sudo chmod +w binary/live/filesystem.manifest
   sudo su
-  sudo chroot edit dpkg-query -W --showformat='${Package} ${Version}\n' > binary/live/filesystem.manifest
+  sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' > binary/live/filesystem.manifest
   exit
   sudo cp binary/live/filesystem.manifest binary/live/filesystem.manifest-desktop
   sudo sed -i '/ubiquity/d' binary/live/filesystem.manifest-desktop
