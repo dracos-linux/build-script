@@ -1,0 +1,7 @@
+Menghapus filesistem.squashfs jika sebelumnya membuat filesistem.squashfs  
+Jika Pertama kali membuat iso lewatkan perintah dibawah ini  
+PENTING UNTUK DIPERHATIKAN JIKA MAU BIKIN LAGI filesystem.squashfs  
+FILE YANG LAMA WAJIB HAPUS JIKA TIDAK AKAN MENGALAMI ERROR  
+```
+sudo rm $HOME/livecdtmp/extract-cd/casper/filesystem.squashfs
+```
