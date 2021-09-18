@@ -1,7 +1,46 @@
-Menghapus filesistem.squashfs jika sebelumnya membuat filesistem.squashfs  
-Jika Pertama kali membuat iso lewatkan perintah dibawah ini  
-PENTING UNTUK DIPERHATIKAN JIKA MAU BIKIN LAGI filesystem.squashfs  
-FILE YANG LAMA WAJIB HAPUS JIKA TIDAK AKAN MENGALAMI ERROR  
-```
-sudo rm $HOME/livecdtmp/extract-cd/casper/filesystem.squashfs
-```
+#!/bin/bash
+########################################################################
+# DRACOS REMASTERING SCRIPT
+# CREATED   : Eko Saputra (ekovegeance)
+# MAIL      : me@ekovegeance.com
+# LICENSE   : GNU GPL 3.0
+# WEBSITE   : https://www.ekovegeance.com/
+# VERSION   : v3.1.1 (06 Sep 2021)
+########################################################################
+
+#Menghapus filesistem.squashfs jika sebelumnya membuat filesistem.squashfs  
+#Jika Pertama kali membuat iso lewatkan perintah dibawah ini  
+#PENTING UNTUK DIPERHATIKAN JIKA MAU BIKIN LAGI filesystem.squashfs  
+#FILE YANG LAMA WAJIB HAPUS JIKA TIDAK AKAN MENGALAMI ERROR  
+
+  sudo rm $HOME/distro/binary/live/filesystem.squashfs
+
+# Membuat SquashFS dari Hasil Modifikasi pertama kali
+  cd $HOME/distro/
+  sudo chmod +w binary/live/filesystem.manifest
+  sudo su
+  sudo chroot chroot dpkg-query -W --showformat='${Package} ${Version}\n' > binary/live/filesystem.manifest
+  exit
+  sudo cp binary/live/filesystem.manifest binary/live/filesystem.manifest-desktop
+  sudo sed -i '/ubiquity/d' binary/live/filesystem.manifest-desktop
+  sudo sed -i '/live/d' binary/live/filesystem.manifest-desktop
+  sudo mksquashfs chroot binary/live/filesystem.squashfs
+
+# Mengupdate systemfile.size
+  cd $HOME/distro/
+  sudo su
+  printf $(du -sx --block-size=1 chroot | cut -f1) > binary/live/filesystem.size
+  exit
+ 
+# Membuat dan mengupdate md5sum CD
+  cd $HOME/distro/binary
+  sudo rm MD5SUMS
+  find -type f -print0 | sudo xargs -0 md5sum | grep -v isolinux/boot.cat | sudo tee MD5SUMS
+  
+# Membuat ISO File
+  cd $HOME/distro/
+  sudo mkisofs -r -V "DracOS-3.1.1-amd64" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o../DracOS-3.1.1-amd64.iso binary
+  
+# Mengubah hak akses iso file yang tadi di buat
+  cd $HOME/
+  sudo chmod 777 DracOS-3.1.1-amd64.iso
