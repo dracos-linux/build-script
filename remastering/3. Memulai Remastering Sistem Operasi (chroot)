@@ -13,7 +13,7 @@
 ========================================================================
 
 #Pastikan Berada di Lokasi Project Remastering (livecdtmp)
-cd $HOME/distro/
+  cd $HOME/distro/
 
 #Mengcopikan file resolv.conf dari host ke directoy "chroot"
   sudo cp /etc/resolv.conf ./chroot/etc/
