@@ -23,4 +23,4 @@
   umount /dev/pts
   exit
   sudo umount chroot/dev
-  sudo umount mnt
+  
