@@ -7,18 +7,22 @@
 # VERSION   : v3.1.1 (06 Sep 2021)
 ########################################################################
 
-# Kembali ke diroctory kerja
+#Kembali ke diroctory kerja
   cd ~/distro
   
-# Mounting edit (CHROOT) ke /dev
+#Mengcopikan file resolv.conf dari host ke directoy "chroot".
+  sudo cp /etc/resolv.conf ./chroot/etc/
+  
+#Membuat kait (mount) /dev/.
   sudo mount --bind /dev/ chroot/dev
 
-# Masuk ke Mode CHROOT
+#Masuk ke Mode CHROOT
   sudo chroot chroot
-# Mount Proc dan sys
+  
+#Mengaikatan proc sysfs dan devpts
   mount -t proc none /proc && mount -t sysfs none /sys && mount -t devpts none /dev/pts
 
-# Setting LC_ALL=C
+#Membuat variable dari HOME yaitu /root dan mengatur Bahasa Default "C".
   export HOME=/root && export LC_ALL=C
 
 Siap Melanjutkan Remastering
