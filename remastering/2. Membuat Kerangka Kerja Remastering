@@ -34,4 +34,9 @@
 # Mengopy configuration resolv.conf ke chroot/etc
   sudo cp /etc/resolv.conf chroot/etc/
 
+#Memutuskan Kait (umount) mnt yang berisi titik kait dari file iso.
+  sudo umount ./mnt
+
+#Membersihkan directory "mnt" yang sudah tidak dipakai lagi.
+  sudo rm -rf ./mnt
 
