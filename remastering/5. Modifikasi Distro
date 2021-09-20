@@ -12,6 +12,7 @@
   cd /etc
   nano issue
   nano issue.net
+  nano os-release
 
 # Mengganti Info Distro
   cd /etc/dracos/
