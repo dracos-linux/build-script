@@ -26,7 +26,7 @@
   sudo rsync --exclude=/live/filesystem.squashfs -a mnt/ binary
 
 # Mengextract filesystem.squashfs
-  sudo unsquashfs mnt/binary/live/filesystem.squashfs
+  sudo unsquashfs mnt/live/filesystem.squashfs
 
 # Ganti nama directory squashfs-root ke edit
   sudo mv squashfs-root chroot
