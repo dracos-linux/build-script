@@ -44,3 +44,16 @@
 # Mengubah hak akses iso file yang tadi di buat
   cd $HOME/
   sudo chmod 777 DracOS-3.1.1-amd64.iso
+
+-----------------------
+# OS RELEASE
+-----------------------
+
+#Membuat ISO Hybrid.
+  isohybrid DracOS-3.1.1-amd64.iso.iso
+
+#Membuat Checksum File ISO MD5sum.
+  md5sum DracOS-3.1.1-amd64.iso > DracOS-3.1.1-amd64.iso.md5sum
+  
+#Membuat Checksum File ISO SHA1sum.
+  sha1sum DracOS-3.1.1-amd64.iso > DracOS-3.1.1-amd64.iso.sha1sum
